@@ -25,7 +25,7 @@ role :web, "deploy@#{ip}"
 role :db,  "deploy@#{ip}"
 role :queue, "deploy@#{ip}"
 
-server ip, user: 'deploy', roles: %w{web app}, my_property: :my_value
+server ip, user: 'deploy', roles: %w{web app db queue}, my_property: :my_value
 
 namespace :sidekiq do
   task :quiet, :roles => :queue do
