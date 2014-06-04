@@ -5,7 +5,7 @@ require "rvm/capistrano"
 require 'puma/capistrano'
 
 default_run_options[:pty] = true
-
+set :stage, :develop
 ip = '192.168.0.31'
 
 set :rvm_type, :auto                     # Defaults to: :auto
