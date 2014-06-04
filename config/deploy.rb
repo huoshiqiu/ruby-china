@@ -2,30 +2,31 @@
 require "bundler/capistrano"
 require "sidekiq/capistrano"
 require "rvm/capistrano"
-require 'puma/capistrano'
+#require 'puma/capistrano'
 
 default_run_options[:pty] = true
-set :stage, :develop
+#set :stage, :develop
 ip = '192.168.0.31'
 
-set :rvm_type, :auto                     # Defaults to: :auto
+set :rvm_type, :user # Defaults to: :auto
 set :rvm_ruby_version, 'default'      # Defaults to: 'default'
 set :application, "chinaswift"
-set :repository,  "https://github.com/huoshiqiu/ruby-china.git"
+set :repository,  "git@github.com:huoshiqiu/ruby-china.git"
 set :branch, "master"
 set :deploy_to, '/home/deploy/swift'
 set :scm, :git
 # set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
-set :puma_role, :app
-set :puma_config_file, "config/puma.rb"
+#set :puma_role, :app
+#set :puma_config_file, "config/puma.rb"
+set :use_sudo, false
 
 role :app, "deploy@#{ip}"
 role :web, "deploy@#{ip}"
 role :db,  "deploy@#{ip}"
 role :queue, "deploy@#{ip}"
 
-server ip, user: 'deploy', roles: %w{web app db queue}, my_property: :my_value
+#server ip, user: 'deploy', roles: %w{web app db queue}, my_property: :my_value
 
 namespace :sidekiq do
   task :quiet, :roles => :queue do
