@@ -6,24 +6,26 @@ require 'puma/capistrano'
 
 default_run_options[:pty] = true
 
-set :rvm_ruby_string, 'ruby-2.1.2'
-set :rvm_type, :user
-set :application, "ruby-china"
-set :repository,  "git://github.com/ruby-china/ruby-china.git"
+ip = '192.168.0.31'
+
+set :rvm_type, :auto                     # Defaults to: :auto
+set :rvm_ruby_version, 'default'      # Defaults to: 'default'
+set :application, "chinaswift"
+set :repository,  "https://github.com/huoshiqiu/ruby-china.git"
 set :branch, "master"
+set :deploy_to, '/home/deploy/swift'
 set :scm, :git
-set :user, "ruby"
-set :deploy_to, "/data/www/#{application}"
-set :runner, "ruby"
 # set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
 set :puma_role, :app
 set :puma_config_file, "config/puma.rb"
 
-role :web, "ruby-china.org"                          # Your HTTP server, Apache/etc
-role :app, "ruby-china.org"                          # This may be the same as your `Web` server
-role :db,  "ruby-china.org", :primary => true # This is where Rails migrations will run
-role :queue, "ruby-china.org"
+role :app, "deploy@#{ip}"
+role :web, "deploy@#{ip}"
+role :db,  "deploy@#{ip}"
+role :queue, "deploy@#{ip}"
+
+server ip, user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 namespace :sidekiq do
   task :quiet, :roles => :queue do
