@@ -6,7 +6,7 @@ development:
     default:
       hosts:
         - SETUP_DEVELOPMENT_HOST
-      database: chinaswift_dev
+      database: ruby_china_dev
 
 test:
   <<: *defaults
@@ -14,7 +14,7 @@ test:
     default:
       hosts:
         - SETUP_DEVELOPMENT_HOST
-      database: chinaswift_test
+      database: ruby_china_test
 
 # set these environment variables on your prod server
 production:
@@ -23,4 +23,4 @@ production:
     default:
       hosts:
         - 127.0.0.1:27017
-      database: chinaswift
+      database: ruby_china
