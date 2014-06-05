@@ -1,0 +1,12 @@
+defaults: &defaults
+  host: 127.0.0.1
+  port: 6379
+development:
+  <<: *defaults
+test:
+  <<: *defaults
+production:
+  host: 192.168.0.10
+  port: 6379
+development_mongohq:
+  <<: *defaults

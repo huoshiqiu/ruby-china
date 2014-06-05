@@ -1,0 +1,28 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  sessions:
+    default:
+      hosts:
+        - 127.0.0.1:27017
+      database: chinaswift_dev
+
+test:
+  <<: *defaults
+  sessions:
+    default:
+      hosts:
+        - 127.0.0.1:27017
+      database: chinaswift_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  sessions:
+    default:
+      hosts:
+        - 192.168.0.9:27017
+      database: chinaswift
+      username: chinaswift
+      password: chinaswift
