@@ -4,6 +4,12 @@ defaults: &defaults
   domain: "127.0.0.1:3000"
   admin_emails:
     - "jed@kerugui.cn"
+    - "jianzong@bestapp.us"
+    - "kevinchenhp@gmail.com"
+    - "padmazero@gmail.com"
+    - "mxmdream@163.com"
+    - "4dkelvin@gmail.com"
+    - "lovesong15j@gmail.com"
   google_analytics_key: ""
   upload_url: "http://ruby-china-files-dev.b0.upaiyun.com"
   upyun_username: "test"
