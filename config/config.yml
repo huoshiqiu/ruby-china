@@ -11,10 +11,10 @@ defaults: &defaults
     - "4dkelvin@gmail.com"
     - "lovesong15j@gmail.com"
   google_analytics_key: ""
-  upload_url: "http://chinaswift.b0.upaiyun.com"
+  upload_url: "http://chinaswift-pro.b0.upaiyun.com"
   upyun_username: "jedhuo"
   upyun_password: "kerugui2014"
-  upyun_bucket: "chinaswift"
+  upyun_bucket: "chinaswift-pro"
   email_server: "smtp.exmail.qq.com"
   email_sender: 'dev-test@ruby-china.org'
   email_password: 'test123456'
