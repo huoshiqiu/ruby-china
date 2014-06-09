@@ -75,7 +75,7 @@ end
 
 task :compile_assets, :roles => :web do
   run "cd #{deploy_to}/current/; RAILS_ENV=production bundle exec rake assets:precompile"
-  # run "cd #{deploy_to}/current/; RAILS_ENV=production bundle exec rake assets:cdn"
+  run "cd #{deploy_to}/current/; RAILS_ENV=production bundle exec rake assets:cdn"
 end
 
 task :mongoid_migrate_database, :roles => :web do
